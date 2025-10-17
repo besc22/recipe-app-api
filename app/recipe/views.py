@@ -1,5 +1,8 @@
 """
 Views for the recipe APIs
+Define all the HTTP requests that can be made to the recipe endpoints (GET, POST, etc.).
+Controls what data can be seen and manipulated based on the serializer definitions.
+Implement authentication and permissions to ensure only authorized users can access their data.
 """
 from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication
@@ -27,3 +30,7 @@ class RecipeViewSet(viewsets.ModelViewSet):
             return serializers.RecipeSerializer
 
         return self.serializer_class
+
+    def perform_create(self, serializer):
+        """Create a new recipe."""
+        serializer.save(user=self.request.user)

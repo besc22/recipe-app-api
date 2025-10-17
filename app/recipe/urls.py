@@ -1,5 +1,6 @@
 """
 URL mappings for the recipe app.
+Define the urls that can call the defined viewssets in views.py.
 """
 from django.urls import (
     path,

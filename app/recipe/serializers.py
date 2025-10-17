@@ -1,5 +1,6 @@
 """
 Serializers for recipe APIs
+It defines the fields from the database model that can be accessed and manipulated via the API.
 """
 from rest_framework import serializers
 
